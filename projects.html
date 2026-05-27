@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="icons8-about-me-48.png" />
+
+    <!-- Link to our CSS file -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>My Projects - Hassan Mostafa</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container container">
+        <a href="index.html" class="header__logo">Hassan Mostafa</a>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="index.html" class="nav__link">Home</a>
+            </li>
+            <li class="nav__item">
+              <a href="about.html" class="nav__link">About</a>
+            </li>
+            <li class="nav__item">
+              <a href="projects.html" class="nav__link">Projects</a>
+            </li>
+            <li class="nav__item">
+              <a href="contact.html" class="nav__link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- In projects.html -->
+    <main>
+      <section class="projects">
+        <div class="projects__container container">
+          <h1 class="projects__title">My Work</h1>
+          <p class="projects__subtitle">A selection of my favorite projects.</p>
+
+          <div class="projects__grid">
+            <!-- Project Card 1 -->
+            <article class="card">
+              <div class="card__image-container">
+                <img src="images/1.png" alt="Screenshot of Project One" />
+              </div>
+              <div class="card__content">
+                <h3 class="card__title">Meals</h3>
+                <p class="card__description">
+                  A brief description of the project, the technology used, and
+                  what you learned from it. Keep it concise and impactful.
+                </p>
+                <div class="card__tags">
+                  <span class="card__tag">HTML</span>
+                  <span class="card__tag">CSS</span>
+                  <span class="card__tag">Flexbox</span>
+                </div>
+                <div class="card__links">
+                  <a
+                    href="#"
+                    class="card__link button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Live Demo</a
+                  >
+                  <a
+                    href="#"
+                    class="card__link card__link--secondary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Source Code</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- Project Card 2 -->
+            <article class="card">
+              <div class="card__image-container">
+                <img
+                  src="images/download.webp"
+                  alt="Screenshot of Project Two"
+                />
+              </div>
+              <div class="card__content">
+                <h3 class="card__title">Ecommerce</h3>
+                <p class="card__description">
+                  This project was a deep dive into advanced CSS techniques,
+                  focusing on creating a responsive and accessible user
+                  interface.
+                </p>
+                <div class="card__tags">
+                  <span class="card__tag">CSS Grid</span>
+                  <span class="card__tag">BEM</span>
+                  <span class="card__tag">JavaScript</span>
+                </div>
+                <div class="card__links">
+                  <a
+                    href="#"
+                    class="card__link button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Live Demo</a
+                  >
+                  <a
+                    href="#"
+                    class="card__link card__link--secondary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Source Code</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- Add more <article class="card"> blocks here for more projects -->
+            <!-- I recommend at least 3-4 total -->
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- ======================= FOOTER ======================= -->
+    <footer class="footer">
+      <div class="footer__container container">
+        <p>&copy; 2024 Your Name. All Rights Reserved.</p>
+        <!-- We can add social media links here later -->
+      </div>
+    </footer>
+  </body>
+</html>

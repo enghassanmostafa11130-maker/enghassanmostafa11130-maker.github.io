@@ -1,0 +1,600 @@
+/* ==========================================================================
+   1. GLOBAL STYLES & CSS RESET
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px; /* Sets the base font size for rem units */
+}
+
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif; /* A modern, system-based font stack */
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ==========================================================================
+   2. DESIGN SYSTEM (CSS VARIABLES)
+   ========================================================================== */
+
+:root {
+  --color-primary: #007bff;
+  --color-primary-dark: #0056b3;
+  --color-secondary: #6c757d;
+  --color-background: #ffffff;
+  --color-text: #343a40;
+  --color-light-gray: #f8f9fa;
+  --color-border: #dee2e6;
+
+  --font-family-heading: Georgia, serif;
+
+  --spacing-small: 0.5rem; /* 8px */
+  --spacing-medium: 1rem; /* 16px */
+  --spacing-large: 2rem; /* 32px */
+
+  --border-radius-default: 5px;
+  --box-shadow-default: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  --container-width: 1100px;
+}
+
+/* ==========================================================================
+   3. UTILITY & LAYOUT CLASSES
+   ========================================================================== */
+.container {
+  max-width: var(--container-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-medium);
+  padding-right: var(--spacing-medium);
+}
+
+/* ==========================================================================
+   4. HEADER STYLES
+   ========================================================================== */
+.header {
+  background-color: var(--color-background);
+  border-bottom: 1px solid var(--color-border);
+  padding-top: var(--spacing-small);
+  padding-bottom: var(--spacing-small);
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.header__logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+/* Navigation Styles */
+.nav__list {
+  display: flex;
+  gap: var(--spacing-medium);
+  list-style-type: none;
+}
+
+.nav__link {
+  color: var(--color-secondary);
+  text-decoration: none;
+  padding: var(--spacing-small);
+  transition: color 0.2s ease-in-out;
+}
+
+.nav__link:hover {
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   5. FOOTER STYLES
+   ========================================================================== */
+.footer {
+  background-color: var(--color-text);
+  color: var(--color-light-gray);
+  text-align: center;
+  padding: var(--spacing-large) 0;
+  margin-top: var(--spacing-large); /* Push footer down */
+}
+
+/* ==========================================================================
+   6. MOBILE NAVIGATION STYLES
+   ========================================================================== */
+
+/* By default, the navigation is a hidden column */
+.nav {
+  position: fixed; /* Stays in place */
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100vh; /* Takes full viewport height */
+  background-color: rgba(
+    52,
+    58,
+    64,
+    0.95
+  ); /* Semi-transparent dark background */
+  backdrop-filter: blur(5px); /* Frosty glass effect */
+
+  /* Hide it by default by moving it off-screen */
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav__list {
+  flex-direction: column; /* Stack the links vertically */
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* Make the list take up the full height of the nav */
+  gap: var(--spacing-large);
+}
+
+.nav__link {
+  color: var(--color-light-gray);
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.nav__link:hover {
+  color: var(--color-primary);
+}
+
+/* When the body has the 'nav-open' class, slide the nav into view */
+.nav-open .nav {
+  transform: translateX(0);
+}
+
+/* --- Hamburger Toggle Button --- */
+.nav-toggle {
+  display: block; /* Will be hidden on desktop */
+  position: absolute; /* Relative to the header */
+  /* top: 1rem; */
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1000; /* Ensure it's on top of other content */
+}
+
+.nav-toggle__hamburger,
+.nav-toggle__hamburger::before,
+.nav-toggle__hamburger::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-text);
+  border-radius: 2px;
+  transition:
+    transform 0.3s ease-in-out,
+    opacity 0.3s ease-in-out;
+}
+
+.nav-toggle__hamburger::before {
+  top: -8px;
+}
+.nav-toggle__hamburger::after {
+  top: 8px;
+}
+
+/* Animate hamburger to an 'X' when nav is open */
+.nav-open .nav-toggle__hamburger {
+  transform: rotate(45deg);
+}
+.nav-open .nav-toggle__hamburger::before {
+  transform: rotate(90deg) translate(-8px);
+}
+.nav-open .nav-toggle__hamburger::after {
+  opacity: 0;
+}
+
+/* ==========================================================================
+   7. DESKTOP NAVIGATION STYLES (Media Query)
+   ========================================================================== */
+
+@media (min-width: 800px) {
+  /* On desktop, hide the hamburger toggle */
+  .nav-toggle {
+    display: none;
+  }
+
+  /* Revert the mobile nav styles back to the original desktop look */
+  .nav {
+    position: static;
+    transform: none;
+    width: auto;
+    height: auto;
+    background: none;
+    backdrop-filter: none;
+  }
+
+  .nav__list {
+    flex-direction: row;
+    height: auto;
+    gap: var(--spacing-medium);
+  }
+
+  .nav__link {
+    color: var(--color-secondary);
+    font-size: 1rem;
+    font-weight: normal;
+  }
+
+  .nav__link:hover {
+    color: var(--color-primary);
+  }
+}
+
+/* ==========================================================================
+   8. HERO SECTION STYLES
+   ========================================================================== */
+.hero {
+  background-color: var(--color-light-gray);
+  padding-top: var(--spacing-large);
+  padding-bottom: var(--spacing-large);
+}
+
+.hero__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 75vh; /* Make the hero section take up a good portion of the screen */
+  text-align: center;
+}
+
+.hero__content {
+  max-width: 700px; /* Prevent content from getting too wide */
+}
+
+.hero__subtitle {
+  color: var(--color-primary);
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-small);
+}
+
+.hero__title {
+  font-family: var(--font-family-heading);
+  font-size: clamp(2.5rem, 8vw, 4.5rem); /* Fluid typography! */
+  color: var(--color-text);
+  line-height: 1.1;
+  margin-bottom: var(--spacing-medium);
+}
+
+.hero__description {
+  font-size: clamp(1.2rem, 4vw, 1.75rem);
+  color: var(--color-secondary);
+  margin-bottom: var(--spacing-large);
+  font-weight: normal;
+}
+
+.hero__text {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--spacing-large);
+}
+
+/* ==========================================================================
+   9. BUTTON STYLES (Reusable Component)
+   ========================================================================== */
+.button {
+  display: inline-block; /* Allows padding and margin */
+  padding: var(--spacing-small) var(--spacing-large);
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: var(--border-radius-default);
+  border: 2px solid transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: translateY(-3px); /* Add a little "lift" effect */
+  box-shadow: var(--box-shadow-default);
+}
+
+/* ==========================================================================
+   10. ABOUT PAGE STYLES
+   ========================================================================== */
+.about {
+  padding-top: var(--spacing-large);
+  padding-bottom: var(--spacing-large);
+}
+
+.about__title {
+  font-family: var(--font-family-heading);
+  font-size: clamp(2rem, 6vw, 3rem);
+  text-align: center;
+  margin-bottom: var(--spacing-large);
+}
+
+/* --- Mobile-First Layout (Default is a single column stack) --- */
+.about__grid {
+  display: grid;
+  gap: var(--spacing-large);
+}
+
+.about__content p {
+  margin-bottom: var(--spacing-medium);
+}
+
+.about__skills-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns for the skills list */
+  gap: var(--spacing-small);
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: var(--spacing-large);
+}
+
+.about__skill {
+  position: relative;
+  padding-left: 1.5rem; /* Make space for the custom bullet */
+}
+
+/* Custom bullet point using a pseudo-element */
+.about__skill::before {
+  content: "▹"; /* A right-pointing triangle */
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+}
+
+.about__image-wrapper {
+  max-width: 400px; /* Constrain the image size */
+  justify-self: center; /* Center the wrapper within the grid cell */
+}
+
+.about__image {
+  border-radius: var(--border-radius-default);
+  box-shadow: var(--box-shadow-default);
+}
+
+/* --- Desktop Layout (Media Query) --- */
+@media (min-width: 800px) {
+  .about__grid {
+    /* On desktop, switch to a 2-column grid */
+    grid-template-columns: 2fr 1fr; /* Content takes up 2/3, image takes up 1/3 */
+    align-items: center; /* Vertically align the content and image */
+  }
+
+  .about__image-wrapper {
+    max-width: 100%; /* Allow image to fill its grid column */
+  }
+}
+
+/* ==========================================================================
+   11. PROJECTS PAGE STYLES
+   ========================================================================== */
+.projects {
+  padding-top: var(--spacing-large);
+  padding-bottom: var(--spacing-large);
+  background-color: var(--color-light-gray);
+}
+
+.projects__title,
+.projects__subtitle {
+  text-align: center;
+}
+
+.projects__title {
+  font-family: var(--font-family-heading);
+  font-size: clamp(2rem, 6vw, 3rem);
+  margin-bottom: var(--spacing-small);
+}
+
+.projects__subtitle {
+  font-size: 1.1rem;
+  color: var(--color-secondary);
+  margin-bottom: var(--spacing-large);
+}
+
+/* The responsive grid for the cards */
+.projects__grid {
+  display: grid;
+  /* On mobile, one column. We use 'minmax' to ensure cards aren't too small */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-large);
+}
+
+/* ==========================================================================
+   12. CARD COMPONENT STYLES (Reusable)
+   ========================================================================== */
+.card {
+  background-color: var(--color-background);
+  border-radius: var(--border-radius-default);
+  box-shadow: var(--box-shadow-default);
+  overflow: hidden; /* Ensures the image corners are rounded */
+  display: flex;
+  flex-direction: column; /* Stacks the content vertically */
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card__image-container {
+  height: 200px; /* Give the image a fixed height */
+  overflow: hidden;
+}
+
+.card__image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This is key: it scales the image to cover the container without distortion */
+}
+
+.card__content {
+  padding: var(--spacing-medium);
+  /* Make the content area grow to fill available space */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__title {
+  font-family: var(--font-family-heading);
+  margin-bottom: var(--spacing-small);
+}
+
+.card__description {
+  color: var(--color-secondary);
+  margin-bottom: var(--spacing-medium);
+  flex-grow: 1; /* Pushes the tags and links to the bottom */
+}
+
+.card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-small);
+  margin-bottom: var(--spacing-medium);
+}
+
+.card__tag {
+  background-color: var(--color-light-gray);
+  color: var(--color-secondary);
+  font-size: 0.8rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+}
+
+.card__links {
+  display: flex;
+  justify-content: flex-end; /* Align links to the right */
+  gap: var(--spacing-medium);
+  margin-top: auto; /* Pushes itself to the bottom of the flex container */
+}
+
+.card__link--secondary {
+  color: var(--color-secondary);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.card__link--secondary:hover {
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   13. CONTACT PAGE STYLES
+   ========================================================================== */
+.contact {
+  padding-top: var(--spacing-large);
+  padding-bottom: var(--spacing-large);
+}
+
+.contact__title {
+  font-family: var(--font-family-heading);
+  font-size: clamp(2rem, 6vw, 3rem);
+  text-align: center;
+  margin-bottom: var(--spacing-large);
+}
+
+.contact__grid {
+  display: grid;
+  gap: var(--spacing-large);
+}
+
+.contact__heading {
+  font-family: var(--font-family-heading);
+  margin-bottom: var(--spacing-medium);
+}
+
+.contact__text {
+  margin-bottom: var(--spacing-medium);
+}
+
+.contact__text a {
+  color: var(--color-primary);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.contact__text a:hover {
+  text-decoration: underline;
+}
+
+/* --- Desktop Layout for Contact Grid --- */
+@media (min-width: 800px) {
+  .contact__grid {
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    align-items: start; /* Align items to the top */
+  }
+}
+
+/* ==========================================================================
+   14. FORM COMPONENT STYLES (Reusable)
+   ========================================================================== */
+.form__group {
+  margin-bottom: var(--spacing-medium);
+}
+
+.form__label {
+  display: block;
+  margin-bottom: var(--spacing-small);
+  font-weight: bold;
+}
+
+.form__input {
+  display: block;
+  width: 100%;
+  padding: var(--spacing-small) var(--spacing-medium);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-default);
+  font-size: 1rem;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+/* Accessibility: Custom focus style */
+.form__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px hsla(var(--bs-primary-rgb), 0.25); /* bs-primary-rgb is just an example, replace with your primary color's RGB values */
+  /* A simpler alternative: */
+  /* box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); */
+}
+
+/* Make sure textarea is not resizable horizontally */
+.form__input[rows] {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form__button {
+  width: 100%;
+  margin-top: var(--spacing-medium);
+}
