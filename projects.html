@@ -3,129 +3,131 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Projects by Hassan Mostafa, including web pages, e-commerce layouts, and front-end builds."
+    />
     <link rel="icon" type="image/png" href="icons8-about-me-48.png" />
-
-    <!-- Link to our CSS file -->
     <link rel="stylesheet" href="css/style.css" />
-
-    <title>My Projects - Hassan Mostafa</title>
+    <title>Projects - Hassan Mostafa</title>
   </head>
   <body>
     <header class="header">
       <div class="header__container container">
         <a href="index.html" class="header__logo">Hassan Mostafa</a>
-        <nav class="nav">
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+        >
+          <span class="nav-toggle__hamburger"></span>
+        </button>
+        <nav class="nav" aria-label="Main navigation">
           <ul class="nav__list">
-            <li class="nav__item">
-              <a href="index.html" class="nav__link">Home</a>
-            </li>
-            <li class="nav__item">
-              <a href="about.html" class="nav__link">About</a>
-            </li>
-            <li class="nav__item">
-              <a href="projects.html" class="nav__link">Projects</a>
-            </li>
-            <li class="nav__item">
-              <a href="contact.html" class="nav__link">Contact</a>
-            </li>
+            <li><a href="index.html" class="nav__link">Home</a></li>
+            <li><a href="about.html" class="nav__link">About</a></li>
+            <li><a href="projects.html" class="nav__link nav__link--active">Projects</a></li>
+            <li><a href="contact.html" class="nav__link">Contact</a></li>
           </ul>
         </nav>
       </div>
     </header>
-    <!-- In projects.html -->
+
     <main>
-      <section class="projects">
+      <section class="page-hero">
+        <div class="container">
+          <p class="eyebrow">Projects</p>
+          <h1 class="page-hero__title">Work I am building and improving</h1>
+          <p class="page-hero__text">
+            Add your newest builds here with a screenshot, a short result-focused
+            description, and links to the live demo and GitHub repository.
+          </p>
+        </div>
+      </section>
+
+      <section class="projects section">
         <div class="projects__container container">
-          <h1 class="projects__title">My Work</h1>
-          <p class="projects__subtitle">A selection of my favorite projects.</p>
-
           <div class="projects__grid">
-            <!-- Project Card 1 -->
             <article class="card">
               <div class="card__image-container">
-                <img src="images/1.png" alt="Screenshot of Project One" />
+                <img src="images/1.png" alt="Meals project screenshot" />
               </div>
               <div class="card__content">
-                <h3 class="card__title">Meals</h3>
+                <p class="card__eyebrow">Featured Project</p>
+                <h2 class="card__title">Meals Website</h2>
                 <p class="card__description">
-                  A brief description of the project, the technology used, and
-                  what you learned from it. Keep it concise and impactful.
+                  A food-focused landing page with responsive sections, strong
+                  visual hierarchy, and reusable layout patterns.
                 </p>
-                <div class="card__tags">
-                  <span class="card__tag">HTML</span>
-                  <span class="card__tag">CSS</span>
-                  <span class="card__tag">Flexbox</span>
+                <div class="card__tags" aria-label="Technologies used">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>Responsive Design</span>
                 </div>
                 <div class="card__links">
-                  <a
-                    href="#"
-                    class="card__link button"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Live Demo</a
-                  >
-                  <a
-                    href="#"
-                    class="card__link card__link--secondary"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Source Code</a
-                  >
+                  <span class="button button--disabled">Demo Coming Soon</span>
+                  <span class="card__link--muted">Source Coming Soon</span>
                 </div>
               </div>
             </article>
 
-            <!-- Project Card 2 -->
             <article class="card">
               <div class="card__image-container">
-                <img
-                  src="images/download.webp"
-                  alt="Screenshot of Project Two"
-                />
+                <img src="images/download.webp" alt="E-commerce project screenshot" />
               </div>
               <div class="card__content">
-                <h3 class="card__title">Ecommerce</h3>
+                <p class="card__eyebrow">Practice Build</p>
+                <h2 class="card__title">E-commerce Layout</h2>
                 <p class="card__description">
-                  This project was a deep dive into advanced CSS techniques,
-                  focusing on creating a responsive and accessible user
-                  interface.
+                  A shop interface concept focused on product cards, grid
+                  structure, calls to action, and clean content spacing.
                 </p>
-                <div class="card__tags">
-                  <span class="card__tag">CSS Grid</span>
-                  <span class="card__tag">BEM</span>
-                  <span class="card__tag">JavaScript</span>
+                <div class="card__tags" aria-label="Technologies used">
+                  <span>CSS Grid</span>
+                  <span>JavaScript</span>
+                  <span>UI Layout</span>
                 </div>
                 <div class="card__links">
-                  <a
-                    href="#"
-                    class="card__link button"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Live Demo</a
-                  >
-                  <a
-                    href="#"
-                    class="card__link card__link--secondary"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Source Code</a
-                  >
+                  <span class="button button--disabled">Demo Coming Soon</span>
+                  <span class="card__link--muted">Source Coming Soon</span>
                 </div>
               </div>
             </article>
 
-            <!-- Add more <article class="card"> blocks here for more projects -->
-            <!-- I recommend at least 3-4 total -->
+            <article class="card card--placeholder">
+              <div class="card__content">
+                <p class="card__eyebrow">Next Project</p>
+                <h2 class="card__title">Add Your New Build</h2>
+                <p class="card__description">
+                  Duplicate this card when you finish another project. Replace
+                  the title, description, tags, screenshot, and links.
+                </p>
+                <div class="card__tags" aria-label="Suggested technologies">
+                  <span>React</span>
+                  <span>API</span>
+                  <span>Portfolio</span>
+                </div>
+                <div class="card__links">
+                  <a href="contact.html" class="button">Discuss It</a>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </section>
     </main>
-    <!-- ======================= FOOTER ======================= -->
+
     <footer class="footer">
       <div class="footer__container container">
-        <p>&copy; 2024 Hassan Mostafa. All Rights Reserved.</p>
-        <!-- We can add social media links here later -->
+        <p>&copy; 2026 Hassan Mostafa. All Rights Reserved.</p>
+        <div class="footer__links">
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
       </div>
     </footer>
+
+    <script src="js/main.js"></script>
   </body>
 </html>

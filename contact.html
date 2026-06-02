@@ -3,53 +3,63 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Contact Hassan Mostafa for web development projects and collaboration."
+    />
     <link rel="icon" type="image/png" href="icons8-about-me-48.png" />
-
-    <!-- Link to our CSS file -->
     <link rel="stylesheet" href="css/style.css" />
-
-    <title>Contact Me - Hassan Mostafa</title>
+    <title>Contact - Hassan Mostafa</title>
   </head>
   <body>
     <header class="header">
       <div class="header__container container">
         <a href="index.html" class="header__logo">Hassan Mostafa</a>
-        <nav class="nav">
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+        >
+          <span class="nav-toggle__hamburger"></span>
+        </button>
+        <nav class="nav" aria-label="Main navigation">
           <ul class="nav__list">
-            <li class="nav__item">
-              <a href="index.html" class="nav__link">Home</a>
-            </li>
-            <li class="nav__item">
-              <a href="about.html" class="nav__link">About</a>
-            </li>
-            <li class="nav__item">
-              <a href="projects.html" class="nav__link">Projects</a>
-            </li>
-            <li class="nav__item">
-              <a href="contact.html" class="nav__link">Contact</a>
-            </li>
+            <li><a href="index.html" class="nav__link">Home</a></li>
+            <li><a href="about.html" class="nav__link">About</a></li>
+            <li><a href="projects.html" class="nav__link">Projects</a></li>
+            <li><a href="contact.html" class="nav__link nav__link--active">Contact</a></li>
           </ul>
         </nav>
       </div>
     </header>
-    <!-- In contact.html -->
+
     <main>
-      <section class="contact">
+      <section class="page-hero">
+        <div class="container">
+          <p class="eyebrow">Contact</p>
+          <h1 class="page-hero__title">Let us build something useful</h1>
+          <p class="page-hero__text">
+            Send me a message about a project, collaboration, or opportunity.
+          </p>
+        </div>
+      </section>
+
+      <section class="contact section">
         <div class="contact__container container">
-          <h1 class="contact__title">Get In Touch</h1>
           <div class="contact__grid">
             <div class="contact__content">
-              <h2 class="contact__heading">Let's build something together</h2>
+              <h2 class="section__title">Get in touch</h2>
               <p class="contact__text">
-                I'm currently available for freelance work and open to
-                discussing new projects. Whether you have a question or just
-                want to say hi, my inbox is always open. I'll do my best to get
-                back to you!
+                I am available for freelance work, project practice, and web
+                development opportunities. Share a few details and I will get
+                back to you.
               </p>
               <p class="contact__text">
-                If you prefer, you can also reach me on
+                You can also reach me on
                 <a
                   target="_blank"
+                  rel="noopener noreferrer"
                   href="https://www.linkedin.com/in/hassan-mostafa-7b81392a6/"
                   >LinkedIn</a
                 >.
@@ -68,6 +78,7 @@
                   id="name"
                   name="name"
                   class="form__input"
+                  autocomplete="name"
                   required
                 />
               </div>
@@ -78,6 +89,7 @@
                   id="email"
                   name="email"
                   class="form__input"
+                  autocomplete="email"
                   required
                 />
               </div>
@@ -91,20 +103,23 @@
                   required
                 ></textarea>
               </div>
-              <button type="submit" class="form__button button">
-                Send Message
-              </button>
+              <button type="submit" class="form__button button">Send Message</button>
             </form>
           </div>
         </div>
       </section>
     </main>
-    <!-- ======================= FOOTER ======================= -->
+
     <footer class="footer">
       <div class="footer__container container">
-        <p>&copy; 2024 Hassan Mostafa. All Rights Reserved.</p>
-        <!-- We can add social media links here later -->
+        <p>&copy; 2026 Hassan Mostafa. All Rights Reserved.</p>
+        <div class="footer__links">
+          <a href="about.html">About</a>
+          <a href="projects.html">Projects</a>
+        </div>
       </div>
     </footer>
+
+    <script src="js/main.js"></script>
   </body>
 </html>
